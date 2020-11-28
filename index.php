@@ -1,4 +1,10 @@
 <?php
-$w = 'adadad';
-echo $w;
-echo $w;
+
+namespace weblogin;
+
+
+
+if (!isset($_COOKIE['auth'])){
+    include 'view/view_login.phtml';
+    die();
+}
