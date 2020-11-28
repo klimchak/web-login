@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Вход</title>
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
     <link rel="stylesheet" href="./view/css/bootstrap.css">
     <link rel="stylesheet" href="./view/css/bootstrap-grid.css">
     <link rel="stylesheet" href="./view/css/bootstrap-reboot.css">
@@ -15,24 +15,39 @@
 
 <ul class="nav justify-content-end" id="nav">
     <li class="nav-item">
-        <a id="getRegister" class="nav-link active" href="index.php?getReg=1">Регистрация</a>
+        <a id="getRegister" class="nav-link active" href="index.php?getReg=0">Войти</a>
     </li>
 </ul>
 <div class="container-fluid">
     <div class="row justify-content-center align-items-center" id="mainBlock">
         <div class="col-2">
-            <form id="loginForm">
+            <form id="regForm">
                 <div class="form-group">
                     <label for="InputLogin">Логин</label>
-                    <input name="login" type="text" class="form-control" id="InputLogin" aria-describedby="loginHelp" placeholder="Введите логин">
+                    <input name="login" type="text" class="form-control required" id="InputLogin" aria-describedby="loginHelp" placeholder="Введите логин" required>
                     <small id="loginHelp" class="form-text text-muted text-danger text-hide">Логин не соответствует требованиям</small>
                 </div>
                 <div class="form-group">
                     <label for="InputPassword1">Пароль</label>
-                    <input name="password" type="password" class="form-control" id="InputPassword1" placeholder="Введите пароль">
+                    <input name="password" type="password" class="form-control" id="InputPassword1" placeholder="Введите пароль" required>
                     <small id="passwordHelp" class="form-text text-muted text-danger text-hide">Пароль не соответствует требованиям</small>
                 </div>
-                <button type="submit" class="btn btn-primary">Войти</button>
+                <div class="form-group">
+                    <label for="InputPassword2">Повторите пароль</label>
+                    <input name="repassword" type="password" class="form-control" id="InputPassword2" placeholder="Повторите пароль" required>
+                    <small id="repasswordHelp" class="form-text text-muted text-danger text-hide">Пароли не совпадают</small>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Email</label>
+                    <input name="email" type="email" class="form-control" id="InputEmail" placeholder="Введите email" required>
+                    <small id="emailHelp" class="form-text text-muted text-danger text-hide">email не соответствует требованиям</small>
+                </div>
+                <div class="form-group">
+                    <label for="InputName">Ваше имя</label>
+                    <input name="fname" type="text" class="form-control" id="InputName" placeholder="Введите свое имя" required>
+                    <small id="nameHelp" class="form-text text-muted text-danger text-hide">Имя не соответствует требованиям</small>
+                </div>
+                <button type="submit" id="regAct" class="btn btn-primary">Регистрация</button>
             </form>
         </div>
     </div>

@@ -3,8 +3,11 @@
 namespace weblogin;
 
 
-
 if (!isset($_COOKIE['auth'])){
-    include 'view/view_login.phtml';
+    if (isset($_GET['getReg']) and $_GET['getReg'] == 1){
+        include 'view/view_register.phtml';
+    }else{
+        include 'view/view_login.phtml';
+    }
     die();
 }
