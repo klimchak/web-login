@@ -1,2 +1,3 @@
 <?php
-$w;
+$w = 'adadad';
+echo $w;
