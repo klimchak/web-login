@@ -26,11 +26,7 @@ if (password_verify($_POST['password'], $file->password)){
     echo json_encode(array('link' => 'secret.php'), JSON_UNESCAPED_UNICODE);
 }
 
-//password_verify($_POST['password'], $file->password);
-
-//print_r(password_verify($_POST['password'], $file->password));
 //klimchik
 //qnN7cgWYdCg*fWCE
 
-//echo json_encode(array('s' , $file[0]['password']), JSON_UNESCAPED_UNICODE);
-exit;
+exit();

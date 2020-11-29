@@ -23,7 +23,6 @@ $(document).ready(function() {
         }
         if (type === 'fname'){
             pattern = /[a-zA-Zа-яА-Я{2,18}]{4,8}/gm;
-            // pattern = /^[а-яё]{30}|[a-z]{30}$/iu;
             return pattern.test(string);
         }
 
@@ -83,7 +82,6 @@ $(document).ready(function() {
                         // console.log(sourceLink['link']);
                         window.location.href = sourceLink['link'];
                     }
-
                 }
             });
             return false;
