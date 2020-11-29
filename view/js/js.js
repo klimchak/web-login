@@ -22,7 +22,8 @@ $(document).ready(function() {
             return pattern.test(string);
         }
         if (type === 'fname'){
-            pattern = /[a-zA-Zа-яА-Я{2,18}]{4,8}/;
+            pattern = /[a-zA-Zа-яА-Я{2,18}]{4,8}/gm;
+            // pattern = /^[а-яё]{30}|[a-z]{30}$/iu;
             return pattern.test(string);
         }
 
@@ -77,7 +78,12 @@ $(document).ready(function() {
                 url: url,
                 data: str,
                 success: function(data){
-                    console.log(data);
+                    if (data['link']){
+                        let sourceLink = JSON.parse(data);
+                        // console.log(sourceLink['link']);
+                        window.location.href = sourceLink['link'];
+                    }
+
                 }
             });
             return false;

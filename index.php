@@ -1,7 +1,5 @@
 <?php
 
-namespace weblogin;
-
 
 if (!isset($_COOKIE['auth'])){
     if (isset($_GET['getReg']) and $_GET['getReg'] == 1){
