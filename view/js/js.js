@@ -6,6 +6,7 @@ $(document).ready(function() {
         let heightScreen = document.documentElement.scrollHeight;
         $("#mainBlock").css('height', heightScreen - heightNav.substr(0, 2));
     }
+
     // проверка данных в инпуте
     function checkInput(string, type){
         if (type === 'login'){
@@ -26,12 +27,7 @@ $(document).ready(function() {
         }
 
     }
-    // функция удаления кук
-    function delete_cookie (cookie_name){
-        let cookie_date = new Date ( );
-        cookie_date.setTime ( cookie_date.getTime() - 1 );
-        document.cookie = cookie_name += "=; expires=" + cookie_date.toGMTString();
-    }
+
     // валидация по нажатию
     function validOnKey(inputId, typeValidateDate, typeHelp){
         $(inputId).keypress(function () {
@@ -39,10 +35,8 @@ $(document).ready(function() {
             let sd = checkInput($(this).val(), typeValidateDate);
             if (sd === false){
                 $(idHelp).removeClass('text-hide');
-                // delete_cookie(typeHelp);
             }else {
                 $(idHelp).addClass('text-hide');
-                // document.cookie = typeHelp + "=" + true;
             }
         })
     }
@@ -102,9 +96,9 @@ $(document).ready(function() {
     }
 
                                                                                          /* работа со страницей */
+    //добавляем атрибут submit только после загрузки страницы
     $('#regAct').attr('type', 'submit');
     $('#logAct').attr('type', 'submit');
-
     // растягиваем блок по высоте
     getSetHeight();
     // валидируем данные по нажатию
@@ -112,12 +106,8 @@ $(document).ready(function() {
     validOnKey('#InputPassword1', 'password', 'password')
     validOnKey('#InputEmail', 'email', 'email')
     validOnKey('#InputName', 'login', 'name')
-
-
-
-
+    //отправка форм
     sendData('#regForm', './register.php');
     sendData('#loginForm', './login.php');
-
 
 });
