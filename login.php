@@ -5,26 +5,22 @@ include_once 'inclClass.php';
 $regex = new \weblogin\ValidDataRegex;
 $printErrors = new \weblogin\PrintError();
 $db = new \weblogin\crud();
+$validData = new \weblogin\ValidDataRegistration();
 
 if (!isset($_POST['login']) or $_POST['login'] == ''){
     header('Location: index.php?getReg=1');
     exit();
 }
 
-//проверка на валидность
-if (isset($_POST['login']) and isset($_POST['password'])){
-    if (!$regex->validData($_POST['login'], 'login')){
-        $printErrors->printError('regex_login');
-    }
-    if (!$regex->validData($_POST['password'], 'password')){
-        $printErrors->printError('regex_pass');
-    }
-}
+//Валидируем данные
+$validData->validData($_POST, 'log');
 
+//Проверяем наличие файла с данным пользователя
 if (!file_exists('./database/' . $_POST['login'] . '.xml')){
     $printErrors->printError('password_err');
 }
 
+//читаем файл
 $file = $db->readfile($_POST['login']);
 
 if (password_verify($_POST['password'], $file->password)){

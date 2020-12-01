@@ -6,23 +6,40 @@ namespace weblogin;
 
 class ValidDataRegistration
 {
-    public $type = ['login', 'password', 'repassword', 'email', 'fname'];
-    public function validData ($data){
+    public $typeReg = ['login', 'password', 'repassword', 'email', 'fname'];
+    public $typeLog = ['login', 'password'];
+
+    public function validData ($data, $typeDate){
         $regex = new \weblogin\ValidDataRegex;
         $printErrors = new \weblogin\PrintError();
         $i = 0;
-        foreach ($data  as $key => $value){
-            if ($key === 'repassword'){
+        if ($typeDate == 'reg'){
+            foreach ($data  as $key => $value){
+                if ($key === 'repassword'){
+                    ++$i;
+                    continue;
+                }
+                if ($key === $this->typeReg[$i] and !$regex->validData($value, $this->typeReg[$i])){
+                    $errorCode = 'regex_' . $this->typeReg[$i];
+                    $printErrors->printError($errorCode);
+                    exit();
+                }
                 ++$i;
-                continue;
             }
-            if ($key === $this->type[$i] and !$regex->validData($value, $this->type[$i])){
-                $errorCode = 'regex_' . $this->type[$i];
-                $printErrors->printError($errorCode);
-                exit();
-            }
-            ++$i;
         }
+        if ($typeDate == 'log'){
+            foreach ($data  as $key => $value){
+                if ($key === $this->typeLog[$i] and !$regex->validData($value, $this->typeLog[$i])){
+                    $errorCode = 'regex_' . $this->typeLog[$i];
+                    $printErrors->printError($errorCode);
+                    exit();
+                }
+                ++$i;
+            }
+        }
+
+
+
     }
 
     public function validLoginUnic ($login){

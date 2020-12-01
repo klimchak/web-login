@@ -13,7 +13,7 @@ if (!isset($_POST['login']) or $_POST['login'] == ''){
 }
 
 //Валидируем данные
-$validData->validData($_POST);
+$validData->validData($_POST, 'reg');
 
 //проверка логина на уникальность
 $validData->validLoginUnic($_POST['login']);
