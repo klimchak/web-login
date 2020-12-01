@@ -26,11 +26,6 @@ if (!file_exists('./database/' . $_POST['login'] . '.xml')){
 }
 
 $file = $db->readfile($_POST['login']);
-//if ($file == false){
-//
-//}
-
-
 
 if (password_verify($_POST['password'], $file->password)){
     session_start();

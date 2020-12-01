@@ -24,4 +24,5 @@ $validData->validEmailUnic($_POST['email'], $_POST['login']);
 $db->creatUser($_POST['login'], password_hash($_POST['password'],  PASSWORD_DEFAULT ), $_POST['email'], $_POST['fname']);
 
 echo json_encode(array('link' => 'secret.php'), JSON_UNESCAPED_UNICODE);
+
 exit;

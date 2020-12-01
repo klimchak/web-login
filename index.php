@@ -28,3 +28,4 @@ if ($_COOKIE['val']){
     header('Location: secret.php');
     die();
 }
+
