@@ -10,6 +10,7 @@ if (isset($_GET) and $_GET['out'] == 1){
     setcookie('val', '', time()-1);
     setcookie('PHPSESSID', '', time()-1);
     header('Location: index.php');
+    die();
 }
 
 if (!isset($_COOKIE['val'])){
@@ -25,4 +26,5 @@ if ($_COOKIE['val']){
     session_start();
     if ($_COOKIE['val'] === $_SESSION['client'])
     header('Location: secret.php');
+    die();
 }

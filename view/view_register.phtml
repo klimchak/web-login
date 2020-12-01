@@ -5,8 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Вход</title>
-    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <title>Регистрация</title>
     <link rel="stylesheet" href="./view/css/bootstrap.css">
     <link rel="stylesheet" href="./view/css/bootstrap-grid.css">
     <link rel="stylesheet" href="./view/css/bootstrap-reboot.css">
@@ -25,7 +24,7 @@
                 <div class="form-group">
                     <label for="InputLogin">Логин</label>
                     <input name="login" type="text" class="form-control required" id="InputLogin" aria-describedby="loginHelp" placeholder="Введите логин" required>
-                    <small id="loginHelp" class="form-text text-muted text-danger text-hide">Логин не соответствует требованиям</small>
+                    <small id="loginHelp" class="form-text text-muted text-danger text-hide">Логин не соответствует требованиям или уже используется</small>
                 </div>
                 <div class="form-group">
                     <label for="InputPassword1">Пароль</label>
@@ -40,25 +39,23 @@
                 <div class="form-group">
                     <label for="InputEmail">Email</label>
                     <input name="email" type="email" class="form-control" id="InputEmail" placeholder="Введите email" required>
-                    <small id="emailHelp" class="form-text text-muted text-danger text-hide">email не соответствует требованиям</small>
+                    <small id="emailHelp" class="form-text text-muted text-danger text-hide">Email не соответствует требованиям или уже используется</small>
                 </div>
                 <div class="form-group">
                     <label for="InputName">Ваше имя</label>
                     <input name="fname" type="text" class="form-control" id="InputName" placeholder="Введите свое имя" required>
                     <small id="nameHelp" class="form-text text-muted text-danger text-hide">Имя не соответствует требованиям</small>
                 </div>
-                <button type="submit" id="regAct" class="btn btn-primary">Регистрация</button>
+                <button type="button" id="regAct" class="btn btn-primary">Регистрация</button>
             </form>
         </div>
     </div>
 </div>
 
 
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 <script src="./view/js/jquery-3.5.1.js"></script>
 <script src="./view/js/js.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
 <script src="./view/js/bootstrap.js"></script>
 
 </body>

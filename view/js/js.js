@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
                                                                                         /* описание функций */
     // растяшивание блока по высоте
     function getSetHeight(){
@@ -47,6 +46,7 @@ $(document).ready(function() {
             }
         })
     }
+
     // запрос на отправку формы серверу
     function sendData(form, url){
         $(form).submit(function () {
@@ -77,11 +77,24 @@ $(document).ready(function() {
                 url: url,
                 data: str,
                 success: function(data){
-                    if (data['link']){
                         let sourceLink = JSON.parse(data);
-                        // console.log(sourceLink['link']);
-                        window.location.href = sourceLink['link'];
-                    }
+                        console.log(data);
+                        console.log(sourceLink);
+                        if (sourceLink['link']){
+                            window.location.href = sourceLink['link'];
+                        }
+                        if (sourceLink['unic_login']) {
+                            $('#loginHelp').removeClass('text-hide');
+                        }
+                        if (sourceLink['unic_email']) {
+                            $('#emailHelp').removeClass('text-hide');
+                        }
+                        if (sourceLink['password_err']) {
+                            $('#loginHelp').removeClass('text-hide');
+                        }
+                        if (sourceLink['regex_email']) {
+                            $('#emailHelp').removeClass('text-hide');
+                        }
                 }
             });
             return false;
@@ -89,6 +102,10 @@ $(document).ready(function() {
     }
 
                                                                                          /* работа со страницей */
+
+    $('#regAct').attr('type', 'submit');
+    $('#logAct').attr('type', 'submit');
+
     // растягиваем блок по высоте
     getSetHeight();
     // валидируем данные по нажатию
