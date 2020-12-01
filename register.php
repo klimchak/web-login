@@ -19,10 +19,11 @@ $validData->validData($_POST, 'reg');
 $validData->validLoginUnic($_POST['login']);
 
 //проверка имейла на уникальность
-$validData->validEmailUnic($_POST['email'], $_POST['login']);
+$validData->validEmailUnic($_POST['email']);
 
+//создаем пользователя
 $db->creatUser($_POST['login'], password_hash($_POST['password'],  PASSWORD_DEFAULT ), $_POST['email'], $_POST['fname']);
 
-echo json_encode(array('link' => 'secret.php'), JSON_UNESCAPED_UNICODE);
-
+//отправка данных на редирект
+echo json_encode(array('link' => 'index.php?getReg=0'), JSON_UNESCAPED_UNICODE);
 exit;

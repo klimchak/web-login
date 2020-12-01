@@ -1,15 +1,18 @@
 <?php
+include_once 'inclClass.php';
 
-
-if (isset($_GET) and $_GET['out'] == 1){
+function redirect(){
+    $db = new \weblogin\crud();
     session_start();
-    $_SESSION['client'] = '';
-    session_destroy();
-    session_abort();
-    session_reset();
     setcookie('val', '', time()-1);
     setcookie('PHPSESSID', '', time()-1);
+    $db->delSession($_SESSION['clientName']);
+    session_destroy();
     header('Location: index.php');
+}
+
+if (isset($_GET) and $_GET['out'] == 1){
+    redirect();
     die();
 }
 
@@ -24,7 +27,7 @@ if (!isset($_COOKIE['val'])){
 
 if ($_COOKIE['val']){
     session_start();
-    if ($_COOKIE['val'] === $_SESSION['client'])
+    if ($_COOKIE['val'] == $_SESSION['client'])
     header('Location: secret.php');
     die();
 }

@@ -71,24 +71,24 @@ $(document).ready(function() {
                 url: url,
                 data: str,
                 success: function(data){
-                        let sourceLink = JSON.parse(data);
-                        console.log(data);
-                        console.log(sourceLink);
-                        if (sourceLink['link']){
-                            window.location.href = sourceLink['link'];
-                        }
-                        if (sourceLink['unic_login']) {
-                            $('#loginHelp').removeClass('text-hide');
-                        }
-                        if (sourceLink['unic_email']) {
-                            $('#emailHelp').removeClass('text-hide');
-                        }
-                        if (sourceLink['password_err']) {
-                            $('#loginHelp').removeClass('text-hide');
-                        }
-                        if (sourceLink['regex_email']) {
-                            $('#emailHelp').removeClass('text-hide');
-                        }
+                    console.log(data);
+                    let sourceLink = JSON.parse(data);
+                    console.log(sourceLink);
+                    if (sourceLink['link']){
+                        window.location.href = sourceLink['link'];
+                    }
+                    if (sourceLink['unic_login']) {
+                        $('#loginHelp').removeClass('text-hide');
+                    }
+                    if (sourceLink['unic_email']) {
+                        $('#emailHelp').removeClass('text-hide');
+                    }
+                    if (sourceLink['password_err']) {
+                        $('#loginHelp').removeClass('text-hide');
+                    }
+                    if (sourceLink['regex_email']) {
+                        $('#emailHelp').removeClass('text-hide');
+                    }
                 }
             });
             return false;
