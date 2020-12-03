@@ -1,6 +1,7 @@
 <?php
+namespace weblogin;
 
-include_once 'inclClass.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/inclClass.php';
 
 
 $db = new \weblogin\crud();

@@ -107,7 +107,7 @@ $(document).ready(function() {
     validOnKey('#InputEmail', 'email', 'email')
     validOnKey('#InputName', 'login', 'name')
     //отправка форм
-    sendData('#regForm', './register.php');
-    sendData('#loginForm', './login.php');
+    sendData('#regForm', '/register.php');
+    sendData('#loginForm', '/login.php');
 
 });

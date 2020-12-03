@@ -1,5 +1,6 @@
 <?php
-include_once 'inclClass.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/inclClass.php';
 
 function redirect(){
     $db = new \weblogin\crud();
@@ -18,17 +19,25 @@ if (isset($_GET) and $_GET['out'] == 1){
 
 if (!isset($_COOKIE['val'])){
     if (isset($_GET['getReg']) and $_GET['getReg'] == 1){
-        include 'view/view_register.phtml';
+        include $_SERVER['DOCUMENT_ROOT'] . '/view/view_register.phtml';
     }else{
-        include 'view/view_login.phtml';
+        include $_SERVER['DOCUMENT_ROOT'] . '/view/view_login.phtml';
     }
     die();
 }
 
 if ($_COOKIE['val']){
+    $db = new \weblogin\crud();
     session_start();
+    if ($db->validSesion($_SESSION['clientName'], $_COOKIE['val']) == true){
+        header('Location: secret.php');
+        exit();
+    }
     if ($_COOKIE['val'] == $_SESSION['client'])
     header('Location: secret.php');
+    die();
+}else{
+    header('Location: index.php?out=1');
     die();
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-include_once 'inclClass.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/inclClass.php';
 
 $regex = new \weblogin\ValidDataRegex;
 $printErrors = new \weblogin\PrintError();

@@ -1,5 +1,6 @@
 <?php
-include_once 'inclClass.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/inclClass.php';
 
 session_start();
 
@@ -17,4 +18,4 @@ if ($db->validSesion($_SESSION['clientName'], $_COOKIE['val']) == false){
 
 $hey = 'hello';
 
-include_once 'view/view_secret.phtml';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/view/view_secret.phtml';
