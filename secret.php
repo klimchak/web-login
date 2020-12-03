@@ -16,6 +16,6 @@ if ($db->validSesion($_SESSION['clientName'], $_COOKIE['val']) == false){
     exit();
 }
 
-$hey = 'hello';
+$hey = 'hello ' . $_SESSION['clientName'];
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/view/view_secret.phtml';

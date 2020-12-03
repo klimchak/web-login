@@ -27,7 +27,7 @@ if (password_verify($_POST['password'], $file->password)){
     session_start();
     $_SESSION['client'] = hash( "sha256", time());
     $_SESSION['clientName'] = $_POST['login'];
-    setcookie('val',$_SESSION['client'], '0', 'jkj', 'weblogin');
+    setcookie('val',$_SESSION['client']);
     $db->updateSession($_POST['login'], $_SESSION['client']);
     echo json_encode(array('link' => 'secret.php'), JSON_UNESCAPED_UNICODE);
 }else{

@@ -32,12 +32,8 @@ if ($_COOKIE['val']){
     if ($db->validSesion($_SESSION['clientName'], $_COOKIE['val']) == true){
         header('Location: secret.php');
         exit();
+    }else{
+        header('Location: index.php?out=1');
+        die();
     }
-    if ($_COOKIE['val'] == $_SESSION['client'])
-    header('Location: secret.php');
-    die();
-}else{
-    header('Location: index.php?out=1');
-    die();
 }
-

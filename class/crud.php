@@ -78,7 +78,7 @@ class crud
             return false;
         }else{
             $valueObj = $xml->getElementsByTagName($login)->item(0);
-            if($value = $valueObj->nodeValue != $keySession){
+            if($value = $valueObj->nodeValue !== $keySession){
                 return false;
             }
             return true;

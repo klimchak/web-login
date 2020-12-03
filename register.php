@@ -1,4 +1,5 @@
 <?php
+
 namespace weblogin;
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/inclClass.php';
